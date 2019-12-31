@@ -3,11 +3,7 @@ const fs = require('fs');
 
 module.exports = (contentSettings, entryId, frontMatter, mainContent) => {
 	let fileContent = '';
-	if (
-		contentSettings.fileExtension === 'md' ||
-		contentSettings.fileExtension === null ||
-		contentSettings.fileExtension === undefined
-	) {
+	if (contentSettings.fileExtension === 'md') {
 		fileContent += `---\n`;
 	}
 
@@ -17,11 +13,7 @@ module.exports = (contentSettings, entryId, frontMatter, mainContent) => {
 		// add current item to filecontent
 		fileContent += YAML.stringify(frontMatter);
 	}
-	if (
-		contentSettings.fileExtension === 'md' ||
-		contentSettings.fileExtension === null ||
-		contentSettings.fileExtension === undefined
-	) {
+	if (contentSettings.fileExtension === 'md') {
 		fileContent += `---\n`;
 	}
 

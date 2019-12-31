@@ -55,7 +55,7 @@ function initialize() {
 						typeId: types[i].id,
 						directory: types[i].directory,
 						isHeadless: types[i].isHeadless,
-						fileExtension: types[i].fileExtension,
+						fileExtension: types[i].fileExtension ? types[i].fileExtension : 'md',
 						titleField: types[i].title,
 						dateField: types[i].dateField,
 						mainContent: types[i].mainContent,
@@ -67,8 +67,6 @@ function initialize() {
 						case 'yaml':
 						case 'yml':
 						case 'json':
-						case undefined:
-						case null:
 							getContentType(1000, 0, contentSettings);
 							break;
 						default:
@@ -88,7 +86,7 @@ function initialize() {
 					const contentSettings = {
 						typeId: single.id,
 						directory: single.directory,
-						fileExtension: single.fileExtension,
+						fileExtension: single.fileExtension ? single.fileExtension : 'md',
 						fileName: single.fileName,
 						titleField: single.title,
 						dateField: single.dateField,
@@ -100,8 +98,6 @@ function initialize() {
 						case 'md':
 						case 'yaml':
 						case 'yml':
-						case null:
-						case undefined:
 							getContentType(1, 0, contentSettings);
 							break;
 						default:
