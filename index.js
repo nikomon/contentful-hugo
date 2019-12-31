@@ -66,6 +66,7 @@ function initialize() {
 						case 'md':
 						case 'yaml':
 						case 'yml':
+						case 'json':
 						case undefined:
 						case null:
 							getContentType(1000, 0, contentSettings);

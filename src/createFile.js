@@ -11,11 +11,16 @@ module.exports = (contentSettings, entryId, frontMatter, mainContent) => {
 		fileContent += `---\n`;
 	}
 
-	// add current item to filecontent
-	fileContent += YAML.stringify(frontMatter);
+	if(contentSettings.fileExtension === 'json' ) {
+		fileContent += JSON.stringify(frontMatter);
+	} else {
+		// add current item to filecontent
+		fileContent += YAML.stringify(frontMatter);
+	}
 	if (
-		contentSettings.fileExtension !== 'yaml' ||
-		contentSettings.fileExtension !== 'yml'
+		contentSettings.fileExtension === 'md' ||
+		contentSettings.fileExtension === null ||
+		contentSettings.fileExtension === undefined
 	) {
 		fileContent += `---\n`;
 	}
