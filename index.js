@@ -399,7 +399,7 @@ function getContentType(limit, skip, contentSettings, itemsPulled) {
 
 				createFile(
 					contentSettings,
-					item.fields && item.fields.slug ? item.fields.slug : item.sys.id,
+					item.sys.id,
 					frontMatter,
 					mainContent
 				);
